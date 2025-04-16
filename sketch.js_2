@@ -1,0 +1,34 @@
+function setup() {//設定
+  //畫布大小為全螢幕
+  createCanvas(windowWidth, windowHeight);
+  //背景色
+  background(220);
+}
+
+function draw() {
+  background(220);
+  //畫筆粗細
+  strokeWeight(10);
+  //畫筆顏色 #faedcd
+  stroke('#faedcd');
+  
+  // 根據滑鼠的 X 位置設定正方形和圓的邊長
+  let squareSize = map(mouseX, 0, width, 50, 100);
+  
+  // 設定正方形和圓的間距
+  let spacing = squareSize + 20;
+  
+  // 繪製整個畫布的正方形和圓
+  for (let x = spacing / 2; x < width; x += spacing) {
+    for (let y = spacing / 2; y < height; y += spacing) {
+      // 畫淡藍色正方形
+      fill('#add8e6');
+      rectMode(CENTER);
+      rect(x, y, squareSize, squareSize);
+      
+      // 畫圓在正方形中間，圓的寬與正方形的寬相同
+      fill('#d4a373');
+      ellipse(x, y, squareSize, squareSize);
+    }
+  }
+}

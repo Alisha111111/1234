@@ -1,0 +1,36 @@
+function setup() {//設定
+  //畫布大小為全螢幕
+  createCanvas(windowWidth, windowHeight);
+  //設定顏色模式為HSB
+  colorMode(HSB);
+  //背景色
+  background(220);
+}
+
+function draw() {
+  background(220);
+  //畫筆粗細
+  strokeWeight(10);
+  //畫筆顏色 (HSB格式)
+  stroke(30, 100, 100);
+  
+  // 根據滑鼠的 X 位置設定正方形和圓的邊長
+  let squareSize = map(mouseX, 0, width, 50, 200);
+  
+  // 設定正方形和圓的間距
+  let spacing = squareSize + 20;
+  
+  // 繪製整個畫布的正方形和圓
+  for (let x = spacing / 2; x < width; x += spacing) {
+    for (let y = spacing / 2; y < height; y += spacing) {
+      // 畫淡藍色正方形 (HSB格式)
+      fill(200, 100, 100);
+      rectMode(CENTER);
+      rect(x, y, squareSize, squareSize);
+      
+      // 畫圓在正方形中間，圓的寬與正方形的寬相同 (HSB格式)
+      fill(30, 100, 100);
+      ellipse(x, y, squareSize, squareSize);
+    }
+  }
+}
